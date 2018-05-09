@@ -1,0 +1,17 @@
+[ignore]
+<PROJECT_ROOT>/node_modules
+<PROJECT_ROOT>/dist
+<PROJECT_ROOT>/.cache
+<PROJECT_ROOT>/build
+
+[include]
+<PROJECT_ROOT>/src
+
+[libs]
+<PROJECT_ROOT>/flow-typed
+
+[lints]
+
+[options]
+
+[strict]
