@@ -1,10 +1,18 @@
 # react-video-scroll
 
+![size](https://img.shields.io/badge/size-4.59%20KB-brightgreen.svg)
+
 > A React component to seek or control the video frame rate on scroll.
 
 ## Motivation
 
 Go to [Oculus Go](https://www.oculus.com/go/) 😄
+
+## Demo
+
+<p align='center'>
+  <img src='./scroll.gif' />
+</p>
 
 ## Install
 
