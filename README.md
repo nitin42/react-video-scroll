@@ -76,4 +76,4 @@ class App extends Component {
 }
 ```
 
-Download [oculus.mp4]() and then run the example or see [this demo]()
+Download [oculus.mp4](blob:https://www.oculus.com/470a6ce6-b93a-4464-aa4e-707209ae04b9) and then run the example.
