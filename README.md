@@ -98,7 +98,7 @@ Set the playback rate when seeking the video on scroll.
 
 Type: `function`
 
-`onScroll` is invoked when the page is scroll. It receives the following parameters -
+`onScroll` is invoked when the page is scroll. It receives the following arguments -
 
 * `wrapper` - Reference to wrapper element i.e `VideoScroll`
 
@@ -126,7 +126,7 @@ const onScroll = (props) => {
 
 Type: `function`
 
-`onLoad` is invoked when the video is finished loading. Use `onLoad` to update the height of wrapper element or video element, or applying some other styles to adjust video on the page. It receives the following parameters -
+`onLoad` is invoked when the video is finished loading. Use `onLoad` to update the height of wrapper element or video element, or applying some other styles to adjust video on the page. It receives the following arguments -
 
 * `wrapper` - Reference to wrapper element i.e `VideoScroll`
 
@@ -173,7 +173,7 @@ Type: `Function`
 
 Return value: `number`
 
-Use `setCurrentFrame` to set the current frame of video. By default, the frame rate is managed [internally]() using `pageXOffset` and `pageYOffset` value. `setCurrentFrame` receives the following parameters -
+Use `setCurrentFrame` to set the current frame of video. By default, the frame rate is managed [internally]() using `pageXOffset` and `pageYOffset` value. `setCurrentFrame` receives the following arguments -
 
 * `duration` - Duration of video
 

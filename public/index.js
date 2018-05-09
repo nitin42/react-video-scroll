@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { render } from 'react-dom'
 
 import { VideoScroll } from '../src/VideoScroll'
 
@@ -24,8 +25,6 @@ class App extends Component {
         onLoad={this.onLoad}
         onScroll={this.onScroll}
         playbackRate={15}
-        // horizontalScroll={true}
-        setCurrentFrame={props => window.pageYOffset / 20 - props.playbackRate}
         id="one"
         style={{ position: 'sticky' }}
       >
@@ -47,4 +46,4 @@ class App extends Component {
   }
 }
 
-export default App
+render(<App />, document.getElementById('root'))
