@@ -75,10 +75,6 @@ render(<App />, document.getElementById('root'))
 
 Download [oculus.mp4](./public/oculus.mp4), place it in the public folder which you're serving and then run the example.
 
-**OR**
-
-[Checkout the live demo site](https://www.react-video-scroll.surge.sh)
-
 ## API
 
 ### `VideoScroll` Component
