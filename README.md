@@ -2,7 +2,7 @@
 
 # react-video-scroll
 
-![size](https://img.shields.io/badge/size-4.59%20KB-brightgreen.svg)
+![size](https://img.shields.io/badge/size-4.61%20KB-brightgreen.svg)
 
 > A React component to seek or control the video frame rate on scroll.
 
