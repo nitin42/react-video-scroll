@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
-import { VideoScroll } from '../src/VideoScroll'
+import { VideoScroll } from './react-video-scroll.min.js'
 
 class App extends Component {
   state = {

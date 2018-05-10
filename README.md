@@ -30,61 +30,64 @@ yarn add react-video-scroll
 
 In order to use this component, you will need to wrap the `video` element with a `source` tag under the `VideoScroll` component.
 
+**Example**
+
 ```js
-import React, { Component } from 'react'
+import React from 'react'
+import { render } from 'react-dom'
 import { VideoScroll } from 'react-video-scroll'
 
-class App extends Component {
-  state = {
-    frame: 0
-  }
-
-  onLoad = ({ wrapper, playbackRate, el }) => {
-    wrapper.style.marginTop = `calc(180% - ${Math.floor(el.duration) *
-      playbackRate +
-      'px'})`
-    wrapper.style.marginBottom = `calc(180% - ${Math.floor(el.duration) *
-      playbackRate +
-      'px'})`
-  }
-
-  render() {
-    return (
-      <VideoScroll
-        onLoad={this.onLoad}
-        playbackRate={15}
-        style={{ position: 'sticky' }}
-      >
-        <video
-          tabIndex="0"
-          autobuffer="autobuffer"
-          preload="preload"
-          style={{ width: '100%', objectFit: 'contain' }}
-          playsInline
-        >
-          <source type="video/mp4" src="./oculus.mp4" />
-        </video>
-      </VideoScroll>
-    )
-  }
+const setStyles = (wrapperEl, videoEl, playbackRate) => {
+  wrapperEl.style.marginTop = `calc(180% - ${Math.floor(videoEl.duration) *
+    playbackRate +
+    'px'})`
+  wrapperEl.style.marginBottom = `calc(180% - ${Math.floor(videoEl.duration) *
+    playbackRate +
+    'px'})`
 }
+
+function App() {
+  return (
+    <VideoScroll
+      onLoad={props =>
+        setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
+      }
+      playbackRate={15}
+      style={{ position: 'sticky' }}
+    >
+      <video
+        tabIndex="0"
+        autobuffer="autobuffer"
+        preload="preload"
+        style={{ width: '100%', objectFit: 'contain' }}
+        playsInline
+      >
+        <source type="video/mp4" src="./oculus.mp4" />
+      </video>
+    </VideoScroll>
+  )
+}
+
+render(<App />, document.getElementById('root'))
 ```
 
 Download [oculus.mp4](blob:https://www.oculus.com/470a6ce6-b93a-4464-aa4e-707209ae04b9), place it in the public folder which you're serving and then run the example.
 
 **OR**
 
-Checkout this example on codesandbox :
+[Checkout the live demo site](react-video-scroll.surge.sh)
 
 ## API
 
-### VideoScroll
+### `VideoScroll` Component
 
-#### `playbackRate`
+#### Props
 
-Type: `number`
+##### `playbackRate`
 
-Set the playback rate when seeking the video on scroll.
+**type**: `number`
+
+**Description**: Set the playback rate when seeking the video on scroll.
 
 ```js
 <VideoScroll playbackRate={20}>
@@ -94,15 +97,17 @@ Set the playback rate when seeking the video on scroll.
 </VideoScroll>
 ```
 
-#### `onScroll`
+##### `onScroll`
 
-Type: `function`
+**type**: `function`
 
-`onScroll` is invoked when the page is scroll. It receives the following arguments -
+**Return type**: `void`
 
-* `wrapper` - Reference to wrapper element i.e `VideoScroll`
+**Description**: `onScroll` is invoked when the page is scroll. It receives the following arguments -
 
-* `el` - Reference to video element
+* `wrapperEl` - Reference to video wrapper i.e `VideoScroll` component
+
+* `videoEl` - Reference to video element
 
 * `currentFrame` - Current frame / current time of video
 
@@ -122,15 +127,17 @@ const onScroll = (props) => {
 </VideoScroll>
 ```
 
-#### `onLoad`
+##### `onLoad`
 
-Type: `function`
+**type**: `function`
 
-`onLoad` is invoked when the video is finished loading. Use `onLoad` to update the height of wrapper element or video element, or applying some other styles to adjust video on the page. It receives the following arguments -
+**Return type**: `void`
 
-* `wrapper` - Reference to wrapper element i.e `VideoScroll`
+**Description**: `onLoad` is invoked when the video is finished loading. Use `onLoad` to update the height of video wrapper or video element, or applying some other styles to adjust the video on the page. It receives the following arguments -
 
-* `el` - Reference to video element
+* `wrapperEl` - Reference to video wrapper i.e `VideoScroll` component
+
+* `videoEl` - Reference to the video element
 
 * `playbackRate` - Playback rate of video
 
@@ -151,13 +158,15 @@ const onLoad = (props) => {
 </VideoScroll>
 ```
 
-#### `horizontalScroll`
+##### `horizontalScroll`
 
-Type: `boolean`
+**type**: `boolean`
 
-Set `horizontalScroll` to `true` for seeking the video on horizontal scroll.
+**default**: `false`
 
-Set the styles of `wrapper` or `video` element using `onLoad` callback before setting the value for `horizontalScroll`.
+**Description**: Set `horizontalScroll` to `true` for seeking the video on horizontal scroll. Set the styles of `wrapper` or `video` element using `onLoad` callback before setting the value for `horizontalScroll`.
+
+By default, the video will seek on scrolling vertically.
 
 ```js
 <VideoScroll horizontalScroll={true}>
@@ -167,19 +176,19 @@ Set the styles of `wrapper` or `video` element using `onLoad` callback before se
 </VideoScroll>
 ```
 
-#### `setCurrentFrame`
+##### `setCurrentFrame`
 
-Type: `Function`
+**type**: `Function`
 
-Return value: `number`
+**Return value**: `number`
 
-Use `setCurrentFrame` to set the current frame of video. By default, the frame rate is managed [internally]() using `pageXOffset` and `pageYOffset` value. `setCurrentFrame` receives the following arguments -
+**Description**: Use `setCurrentFrame` to set the current frame of video. By default, the frame rate is managed [internally]() using `pageXOffset` and `pageYOffset` value. `setCurrentFrame` receives the following arguments -
 
 * `duration` - Duration of video
 
 * `playbackRate` - Playback rate of video
 
-**`setCurrentFrame` should return a number value for frame.**
+**`setCurrentFrame` should return a number value for setting the current frame of a video.**
 
 ```js
 const setFrame = (props) => {
