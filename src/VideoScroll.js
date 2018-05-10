@@ -11,9 +11,9 @@ type Props = {
   // onScroll is invoked when the page is scroll along x or y axis
   onScroll: ({
     // 'div' wrapper element for video element
-    wrapper: HTMLElement,
+    wrapperEl: HTMLElement,
     // video element
-    el: HTMLElement,
+    videoEl: HTMLElement,
     // Current frame / current time of video
     currentFrame: number,
     // Video duration
@@ -23,8 +23,8 @@ type Props = {
   // onLoad is invoked when the video is finished loading.
   // Use this to update the height of wrapper or video element or applying some other styles.
   onLoad: ({
-    wrapper: HTMLElement,
-    el: HTMLElement,
+    wrapperEl: HTMLElement,
+    videoEl: HTMLElement,
     playbackRate: number
   }) => void,
   // Function to set the current frame / current time and seek the video on scroll
@@ -73,8 +73,8 @@ export class VideoScroll extends React.Component<Props, void> {
     if (this.props.onLoad && typeof this.props.onLoad === 'function') {
       // Invoke the callback and apply any necessary styles or adjustments
       this.props.onLoad({
-        wrapper: this.divWrapperRef.current,
-        el: this.videoRef.current,
+        wrapperEl: this.divWrapperRef.current,
+        videoEl: this.videoRef.current,
         duration: this.videoRef.current.duration,
         playbackRate: this.props.playbackRate
       })
@@ -104,8 +104,8 @@ export class VideoScroll extends React.Component<Props, void> {
       // Do some extra stuff here
       if (this.props.onScroll && typeof this.props.onScroll === 'function') {
         this.props.onScroll({
-          wrapper: this.divWrapperRef.current,
-          el: this.videoRef.current,
+          wrapperEl: this.divWrapperRef.current,
+          videoEl: this.videoRef.current,
           currentFrame: currentFrame,
           duration: this.videoRef.current.duration,
           playbackRate: this.props.playbackRate
