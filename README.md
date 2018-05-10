@@ -1,5 +1,3 @@
-**WORK IN PROGRESS**
-
 # react-video-scroll
 
 ![size](https://img.shields.io/badge/size-4.61%20KB-brightgreen.svg)
