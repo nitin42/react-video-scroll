@@ -1,3 +1,5 @@
+**WORK IN PROGRESS**
+
 # react-video-scroll
 
 ![size](https://img.shields.io/badge/size-4.59%20KB-brightgreen.svg)
@@ -71,7 +73,7 @@ function App() {
 render(<App />, document.getElementById('root'))
 ```
 
-Download [oculus.mp4](blob:https://www.oculus.com/470a6ce6-b93a-4464-aa4e-707209ae04b9), place it in the public folder which you're serving and then run the example.
+Download [oculus.mp4](./public/oculus.mp4), place it in the public folder which you're serving and then run the example.
 
 **OR**
 
