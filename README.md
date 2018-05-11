@@ -1,6 +1,8 @@
+**WORK IN PROGRESS**
+
 # react-video-scroll
 
-[![size](https://img.badgesize.io/https://unpkg.com/react-video-scroll?compression=gzip&label=size)](https://unpkg.com/react-video-scroll)
+![size](https://img.shields.io/badge/size-4.59%20KB-brightgreen.svg)
 
 > A React component to seek or control the video frame rate on scroll.
 
@@ -72,6 +74,10 @@ render(<App />, document.getElementById('root'))
 ```
 
 Download [oculus.mp4](./public/oculus.mp4), place it in the public folder which you're serving and then run the example.
+
+**OR**
+
+[Checkout the live demo site](https://www.react-video-scroll.surge.sh)
 
 ## API
 
