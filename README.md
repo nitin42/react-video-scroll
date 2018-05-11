@@ -1,6 +1,6 @@
 # react-video-scroll
 
-![size](https://img.shields.io/badge/size-4.61%20KB-brightgreen.svg)
+[![size](https://img.badgesize.io/https://unpkg.com/react-video-scroll?compression=gzip&label=size)](https://unpkg.com/react-video-scroll)
 
 > A React component to seek or control the video frame rate on scroll.
 
