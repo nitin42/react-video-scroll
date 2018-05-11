@@ -70,7 +70,7 @@ export class VideoScroll extends React.Component<Props, void> {
     // Start the video from beginning
     let currentFrame = 0
 
-    if (this.props.onLoad && typeof this.props.onLoad === 'function') {
+    if (typeof this.props.onLoad === 'function') {
       // Invoke the callback and apply any necessary styles or adjustments
       this.props.onLoad({
         wrapperEl: this.divWrapperRef.current,
@@ -102,7 +102,7 @@ export class VideoScroll extends React.Component<Props, void> {
       this.videoRef.current.currentTime = currentFrame
 
       // Do some extra stuff here
-      if (this.props.onScroll && typeof this.props.onScroll === 'function') {
+      if (typeof this.props.onScroll === 'function') {
         this.props.onScroll({
           wrapperEl: this.divWrapperRef.current,
           videoEl: this.videoRef.current,
@@ -130,8 +130,11 @@ export class VideoScroll extends React.Component<Props, void> {
 
           // To seek more than one video, wrap the other video element inside an another VideoScroll component
           if (count > 1) {
+            const PROD_ERR = '<VideoScroll> component expected only one <video> element as its children'
             throw new Error(
-              '<VideoScroll> component expected only one <video> element as its children but received more than one <video> element. To seek both the videos, wrap the other video element inside another <VideoScroll> component.'
+              process.env.NODE_ENV !== 'production'
+                ? `${PROD_ERR} but received more than one <video> element. To seek both the videos, wrap the other video element inside another <VideoScroll> component.`
+                : `${PROD_ERR}.`
             )
           } else if (count === 1) {
             return React.cloneElement(child, { key: i, ref: this.videoRef })
