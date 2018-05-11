@@ -1,8 +1,7 @@
 {
   "name": "react-video-scroll",
   "version": "1.0.1",
-  "description":
-    "A React component to seek or control the video frame rate on scroll.",
+  "description": "A React component to seek or control the video frame rate on scroll.",
   "main": "build/react-video-scroll.js",
   "module": "build/react-video-scroll.es.js",
   "unpkg": "build/react-video-scroll.min.js",
@@ -10,7 +9,11 @@
     "flow": "./node_modules/.bin/flow",
     "build": "rollup -c"
   },
-  "keywords": ["Seek", "Video", "Scroll"],
+  "keywords": [
+    "Seek",
+    "Video",
+    "Scroll"
+  ],
   "author": "Nitin Tulswani <tulswani19@gmail.com>",
   "license": "ISC",
   "dependencies": {
