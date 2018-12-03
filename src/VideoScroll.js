@@ -35,7 +35,7 @@ type Props = {
   children: React.Node
 }
 
-const rAF = window.requestAnimationFrame
+const rAF = typeof window !== 'undefined' ? window.requestAnimationFrame : () => {}
 
 export class VideoScroll extends React.Component<Props, void> {
   // TODO: https://github.com/facebook/flow/pull/5920
